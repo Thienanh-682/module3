@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">
+        Create Product
+      </div>
+      <div class="card-body">
+        <form [formGroup]="updateProductForm" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label>id</label>
+            <input type="text" class="form-control" formControlName="id" placeholder="Enter id">
+            <div *ngIf="id.invalid && id.touched">
+              <div *ngIf="id.errors.required">
+                <p class="text-danger">truong nay khong dc de trong</p>
+              </div>
+              <div *ngIf="id.errors.minlength">
+                <p class="text-danger">can it nhat 4 ky tu</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+            <div *ngIf="name.invalid && name.touched">
+              <div *ngIf="name.errors.required">
+                <p class="text-danger">truong nay khong dc de trong</p>
+              </div>
+              <div *ngIf="name.errors.minlength">
+                <p class="text-danger">it nhat 4 ki tu</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" class="form-control" formControlName="price" placeholder="Enter Price">
+            <div *ngIf="price.invalid && price.touched">
+              <div *ngIf="price.errors.required">
+                <p class="text-danger">truong nay khong dc de trong</p>
+              </div>
+              <div *ngIf="price.errors.minlength">
+                <p class="text-danger">it nhat 4 ki tu</p>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!updateProductForm.value"  >Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
